@@ -9,6 +9,10 @@ a {transition: all linear 0.5s; margin: 10px;}
     background: url("./owl.jpg") no-repeat center/cover;
 }
 
+tr:hover {
+    text-decoration: none; color:rgb(146, 255, 153); background-color: gray;
+}
+tr {transition: all linear 0.5s; margin: 10px;}
 
 body {
     margin: 0 auto;
