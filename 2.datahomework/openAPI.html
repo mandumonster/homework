@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./font.css">
+</head>
+<body class="GmarketSans">
+    <h2>전국 야생동물 구조센터 정보 표준 데이터</h2>
+    <div id="img"></div>
+    <div id="menu">
+        <a href="#line3">강원</a>
+        <a href="#line10">경기</a>
+        <a href="#line21">경상남도</a>
+        <a href="#line25">경상북도</a>
+        <a href="#line32">광주광역시</a>
+        <a href="#line33">대구광역시</a>
+        <a href="#line35">대전광역시</a>
+        <a href="#line36">부산</a>
+        <a href="#line39">서울</a>
+        <a href="#line45">울산</a>
+        <a href="#line46">인천</a>
+        <a href="#line49">전남</a>
+        <a href="#line52">전북</a>
+        <a href="#line53">제주</a>
+        <a href="#line54">충청남도</a>
+    </div>
+    <div>
+        <table>
+            <caption>야생동물 구조센터</caption>
+            <colgroup>
+                <col style="width: 29%;">
+                <col style="width: 49%;">
+                <col style="width: 29%;">
+            </colgroup>
+            <tr style="text-align: center; background-color: rgb(223, 221, 221);">
+                <th>이름</th>
+                <th>위치</th>
+                <th>전화번호</th>
+            </tr>
+            <tr id="line1"></tr>
+            <tr id="line2"></tr>
+            <tr id="line3"> </tr>
+            <tr id="line4"></tr>
+            <tr id="line5"></tr>
+            <tr id="line6"></tr>
+            <tr id="line7"></tr>
+            <tr id="line8"></tr>
+            <tr id="line9"></tr>
+            <tr id="line10"></tr>
+            <tr id="line11"></tr>
+            <tr id="line12"></tr>
+            <tr id="line13"></tr>
+            <tr id="line14"></tr>
+            <tr id="line15"></tr>
+            <tr id="line16"></tr>
+            <tr id="line17"></tr>
+            <tr id="line18"></tr>
+            <tr id="line19"></tr>
+            <tr id="line20"></tr>
+            <tr id="line21"></tr>
+            <tr id="line22"></tr>
+            <tr id="line23"></tr>
+            <tr id="line24"></tr>
+            <tr id="line25"></tr>
+            <tr id="line26"></tr>
+            <tr id="line27"></tr>
+            <tr id="line28"></tr>
+            <tr id="line29"></tr>
+            <tr id="line30"></tr>
+            <tr id="line31"></tr>
+            <tr id="line32"></tr>
+            <tr id="line33"></tr>
+            <tr id="line34"></tr>
+            <tr id="line35"></tr>
+            <tr id="line36"></tr>
+            <tr id="line37"></tr>
+            <tr id="line38"></tr>
+            <tr id="line39"></tr>
+            <tr id="line40"></tr>
+            <tr id="line41"></tr>
+            <tr id="line42"></tr>
+            <tr id="line43"></tr>
+            <tr id="line44"></tr>
+            <tr id="line45"></tr>
+            <tr id="line46"></tr>
+            <tr id="line47"></tr>
+            <tr id="line48"></tr>
+            <tr id="line49"></tr>
+            <tr id="line50"></tr>
+            <tr id="line51"></tr>
+            <tr id="line52"></tr>
+            <tr id="line53"></tr>
+            <tr id="line54"></tr>
+            <tr id="line55"></tr>
+            <tr id="line56"></tr>
+            <tr id="line57"></tr>
+            <tr id="line58"></tr>
+        </table>
+    </div>
+    <script src="./map.js"></script>
+    <script>
+        fetch('http://api.data.go.kr/openapi/tn_pubr_public_wlres_cnter_api?serviceKey=5IRKQac4f3GgGHDjMuabz6t6RyQcuKsfL1xcrkDk0%2FlO4UpdWQjC44dApGPwJ%2FFSHb5prbmZteVnazF6R%2Fqw6w%3D%3D&pageNo=1&numOfRows=100&type=json')
+        .then((response)=>{
+            return response.json();
+        })
+        .then((data)=>{
+            let datum=data.response.body.items;
+            console.log(datum)
+            datum.sort(function(a,b){
+                return a.rdnmadr<b.rdnmadr ? -1 : a.rdnmadr >b.rdnmadr ? 1:0;
+            });
+            console.log(datum)
+            for (let i=0;i<58;i++){
+                const id=document.getElementById(`line${i+1}`);
+                for (let j=0;j<58;j++){
+                    const newNode=document.createElement('tr');
+                    id.innerHTML=`<th>${datum[i]['wlresCnterNm']}</th><th>${datum[i]['rdnmadr']}</th><th>${datum[i]['phoneNumber']}</th>`};
+            };
+        })
+    </script>
+</body>
+</html>
