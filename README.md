@@ -1,4 +1,4 @@
-# 배깅(Bagging) 또는 부트스트랩 집계(Bootstrap Aggregation)
+# 배깅(Bagging)
 
 ## 1. 배깅의 정의
 **배깅(Bagging)** 또는 **부트스트랩 집계**는 부트스트래핑(bootstrapping)과 집계(aggregation)의 이점을 결합하여 안정된 모델을 얻고 기계 학습 모델의 예측 성능을 향상시키는 앙상블 학습 기술
